@@ -21,7 +21,6 @@ from email import encoders
 from email.message import EmailMessage
 from django.http import JsonResponse
 import re
-import pyttsx3
 file = "good"
 i = "0"
 passwrd = ""
@@ -156,61 +155,61 @@ def register(request):
 def login(request):
     global i, addr, passwrd
     if request.method == 'POST':
-        # wel = "Welcome to our Virtually Assisted Email System.If you are a first time user please register with the help of an assistant . Login with your email. "
-        # texttospeech(wel, file+i)
-        # flag = True
-        # while (flag):
-        #     texttospeech("Enter your Email address", file + i)
-        #     i = i + str(1)
-        #     addr = speechtotext(5)
+        wel = "Welcome to our Virtually Assisted Email System.If you are a first time user please register with the help of an assistant . Login with your email. "
+        texttospeech(wel, file+i)
+        flag = True
+        while (flag):
+            texttospeech("Enter your Email address", file + i)
+            i = i + str(1)
+            addr = speechtotext(5)
 
-        #     if addr != 'N':
-        #         texttospeech("You meant " + addr +
-        #                      " say yes to confirm or no to enter again", file + i)
-        #         i = i + str(1)
-        #         say = speechtotext(3)
-        #         print(say)
-        #         if say == "yes" or say == "Yes":
-        #             flag = False
-        #         else:
-        #             flag = True
-        #     else:
-        #         texttospeech("Please interact again", file + i)
-        #         i = i + str(1)
-        #     print(flag)
-        # addr = addr.strip()
-        # addr = addr.replace(' ', '')
-        # addr = addr.lower()
-        # addr = convert_special_char(addr)
+            if addr != 'N':
+                texttospeech("You meant " + addr +
+                             " say yes to confirm or no to enter again", file + i)
+                i = i + str(1)
+                say = speechtotext(3)
+                print(say)
+                if say == "yes" or say == "Yes":
+                    flag = False
+                else:
+                    flag = True
+            else:
+                texttospeech("Please interact again", file + i)
+                i = i + str(1)
+            print(flag)
+        addr = addr.strip()
+        addr = addr.replace(' ', '')
+        addr = addr.lower()
+        addr = convert_special_char(addr)
         
-        addr = "rapid3054@gmail.com"
-        print(addr)
+        # addr = "rapid3054@gmail.com"
+        # print(addr)
         request.email = addr
         request.session['email'] = addr
-        # flag = True
-        # while (flag):
-        #     texttospeech("Enter your password", file + i)
-        #     i = i + str(1)
-        #     passwrd = speechtotext(5)
+        flag = True
+        while (flag):
+            texttospeech("Enter your password", file + i)
+            i = i + str(1)
+            passwrd = speechtotext(5)
 
-        #     if addr != 'N':
-        #         texttospeech("You meant " + passwrd +
-        #                      " say yes to confirm or no to enter again", file + i)
-        #         i = i + str(1)
-        #         say = speechtotext(3)
-        #         print(say)
-        #         if say == "yes" or say == "Yes":
-        #             flag = False
-        #         else:
-        #             flag = True
-        #     else:
-        #         texttospeech("Please interact again", file + i)
-        #         i = i + str(1)
-        #     print(flag)
-        # passwrd = passwrd.strip()
-        # passwrd = passwrd.replace(' ', '')
-        # passwrd = passwrd.lower()
-        passwrd = 'pass'
+            if addr != 'N':
+                texttospeech("You meant " + passwrd +
+                             " say yes to confirm or no to enter again", file + i)
+                i = i + str(1)
+                say = speechtotext(3)
+                print(say)
+                if say == "yes" or say == "Yes":
+                    flag = False
+                else:
+                    flag = True
+            else:
+                texttospeech("Please interact again", file + i)
+                i = i + str(1)
+            print(flag)
+        passwrd = passwrd.strip()
+        passwrd = passwrd.replace(' ', '')
+        passwrd = passwrd.lower()
+        # passwrd = 'pass'
         passwrd = convert_special_char(passwrd)
         app_pwd = retrieve_app_password(addr,passwrd)
         if(app_pwd==None):
