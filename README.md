@@ -7,7 +7,7 @@ This project is a voice-based mail platform that allows hands-free email managem
 - Django: A powerful web framework used to build the backend of the application.
 - SMTP: Simple Mail Transfer Protocol used to send and receive emails securely.
 - GTTS (Google Text-to-Speech): An API used to convert text into speech for voice interactions.
-- HTML, CSS, JS: Frontend technologies utilized to create a visually appealing and interactive user interface.
+- HTML, CSS: Frontend technologies utilized to create a visually appealing and interactive user interface.
 
 ## Features
 
